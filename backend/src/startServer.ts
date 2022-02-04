@@ -11,7 +11,7 @@ async function startApolloServer() {
   const httpServer = http.createServer(app);
 
   mongoose.createConnection(
-    "mongodb+srv://adelblande:adel2323@cluster0.ie8ik.mongodb.net/dialog?retryWrites=true&w=majority"
+    "mongodb+srv://adelblande:<password>@cluster0.ie8ik.mongodb.net/myBD?retryWrites=true&w=majority"
   );
 
   const server = new ApolloServer({
