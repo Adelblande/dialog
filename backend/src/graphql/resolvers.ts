@@ -2,7 +2,9 @@ import User from "../database/schemas/User";
 
 const listResolvers = {
   Query: {
-    list: (name: String) => User.find({name: {$regex: /Ceci/}}),
+    list: async (name: String) => {
+      return name ? await User.find({ name: `${name}` }) : await User.find();
+    },
   },
 };
 
