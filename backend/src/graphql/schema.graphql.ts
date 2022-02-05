@@ -28,7 +28,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    list: [User!]!
+    list(name: String): [User]!
   }
 `;
 
