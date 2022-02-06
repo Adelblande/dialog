@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   display: flex;
   align-items: center;
   width: 100%;

@@ -8,6 +8,5 @@ export const Container = styled.div`
 
 export const Body = styled.section`
   width: 100%;
-  min-height: calc(100vh - 190px);
-  margin-top: 90px;
+  min-height: calc(100vh - 90px);
 `;

@@ -5,6 +5,7 @@ const listResolvers = {
     list: async (name: String) => {
       return name ? await User.find({ name: `${name}` }) : await User.find();
     },
+    details: async (_id: String) => await User.findOne({ _id: _id }),
   },
 };
 

@@ -29,6 +29,7 @@ const typeDefs = gql`
 
   type Query {
     list(name: String): [User]!
+    details(_id: ID): User
   }
 `;
 
