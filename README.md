@@ -97,4 +97,9 @@ Deverá executar com `yarn start` na porta 3000
 
 ### Anotações que valem menção colocar aqui:
 
+### ScreenShots
+
+![Home](./docs/screenHome.png)
+![Home filtered](./docs/screenHomeFiltered.png)
+![Friends](./docs/screenFriends.png)
 ...
