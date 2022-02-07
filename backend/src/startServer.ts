@@ -1,6 +1,6 @@
 import { ApolloServer } from "apollo-server-express";
 import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
-import express from "express";
+import express, {Request, Response, NextFunction} from "express";
 import http from "http";
 import resolvers from "./graphql/resolvers";
 import typeDefs from "./graphql/schema.graphql";
@@ -8,6 +8,14 @@ import mongoose from "mongoose";
 
 async function startApolloServer() {
   const app = express();
+
+  const loggingMiddleware = (req: Request , res: Response, next: NextFunction) => {
+    console.log(req.originalUrl, req.method, req.params);
+    next();
+  }
+
+  app.use(loggingMiddleware)
+
   const httpServer = http.createServer(app);
 
   mongoose.connect(
