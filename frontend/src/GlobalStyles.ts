@@ -19,7 +19,7 @@ export default createGlobalStyle`
     --green-400: #008989;
     --green-300: #009d9d;
     --green-200: #00b1b1;
-    --green-200: #00d8d8;
+    --green-100: #00d8d8;
 
 
   }

@@ -1,7 +1,8 @@
 import mongoose, { Schema } from "mongoose";
+const ObjectId = mongoose.Types.ObjectId;
 
 const UserSchema = new Schema({
-  _id: String,
+  _id: ObjectId,
   index: Number,
   picture: String,
   age: Number,
@@ -12,7 +13,7 @@ const UserSchema = new Schema({
   phone: String,
   friends: [
     {
-      _id: String,
+      _id: ObjectId,
       index: Number,
       picture: String,
       age: Number,

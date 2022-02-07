@@ -2,7 +2,7 @@ import { gql } from "apollo-server-express";
 
 const typeDefs = gql`
   type Friend {
-    _id: ID
+    _id: String
     index: Int
     picture: String
     age: Int
@@ -14,7 +14,7 @@ const typeDefs = gql`
   }
 
   type User {
-    _id: ID
+    _id: String
     index: Int
     picture: String
     age: Int
@@ -29,7 +29,7 @@ const typeDefs = gql`
 
   type Query {
     list(name: String): [User]!
-    details(_id: ID): User
+    details(_id: String): User
   }
 `;
 

@@ -29,14 +29,11 @@ const QUERY_LIST = gql`
 
 const Home: FC = () => {
   // const [name, setName] = useState(null);
-  const { loading, error, data } = useQuery(QUERY_LIST, {
+  const { loading, data } = useQuery(QUERY_LIST, {
     variables: { name: null },
   });
 
   if (loading) return <p>Loading...</p>;
-  if (error) {
-    console.log("ERROUUU-->", error);
-  }
 
   return (
     <Layout>

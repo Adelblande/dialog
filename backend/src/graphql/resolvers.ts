@@ -1,11 +1,22 @@
 import User from "../database/schemas/User";
 
+interface IArgsListProps {
+  name?: string;
+}
+interface IArgsDetailsProps {
+  _id: string;
+}
+
 const listResolvers = {
   Query: {
-    list: async (name: String) => {
-      return name ? await User.find({ name: `${name}` }) : await User.find();
+    list: async (_: any, args: IArgsListProps) => {
+      return args.name
+        ? await User.find({ name: args.name })
+        : await User.find();
     },
-    details: async (_id: String) => await User.findOne({ _id: _id }),
+    details: (_: any, args: IArgsDetailsProps) => {
+      return User.findById({ _id: args._id });
+    },
   },
 };
 

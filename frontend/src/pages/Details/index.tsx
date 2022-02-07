@@ -2,11 +2,13 @@ import { FC } from "react";
 import Layout from "../Layout";
 import { useParams } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
+import CardDetails from "../../components/CardDetails";
 
-const QUERY_LIST = gql`
-  query Details($detailsId: ID) {
-    details(_id: $detailsId) {
+const QUERY_DETAILS = gql`
+  query Details($_id: String) {
+    details(_id: $_id) {
       picture
+      name
       age
       email
       friends {
@@ -22,25 +24,14 @@ const QUERY_LIST = gql`
 `;
 const Details: FC = () => {
   const { _id } = useParams();
-  const { loading, error, data } = useQuery(QUERY_LIST, {
+
+  const { loading, data } = useQuery(QUERY_DETAILS, {
     variables: { _id },
   });
 
   if (loading) return <p>Loading...</p>;
-  if (error) {
-    console.log("DETAILS-ERROUUU-->", error);
-  }
 
-  if (data) {
-    console.log("Acertouuu-->", data);
-  }
-
-  return (
-    <Layout>
-      <h1>Details</h1>
-      {data && data.details.name}
-    </Layout>
-  );
+  return <Layout>{data && <CardDetails user={data.details} />}</Layout>;
 };
 
 export default Details;

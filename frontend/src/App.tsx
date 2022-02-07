@@ -14,7 +14,7 @@ import { onError } from "@apollo/client/link/error";
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
-    graphQLErrors.map(({ message, path, locations }) =>
+    graphQLErrors.map(({ message }) =>
       console.log("GraphQL Error-->", message)
     );
   }

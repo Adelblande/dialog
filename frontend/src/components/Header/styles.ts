@@ -1,26 +1,26 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   display: flex;
   align-items: center;
   width: 100%;
   height: 90px;
   padding: 20px;
 
-  h1 {
-    color: var(--green-500);
-    font-size: 1.3rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  input {
-    margin-left: 20px;
-    width: 300px;
-    height: 50px;
-    border: 2px solid var(--green-500);
-    border-radius: 30px;
-    font-size: 1.2rem;
-    box-sizing: border-box;
-    padding: 8px 20px;
+  h1 {
+    color: var(--green-500);
+    font-size: 1.5rem;
+    margin-right: 10px;
   }
+`;
+
+export const ContainerSearch = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

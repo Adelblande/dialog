@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 interface IContainerImageProps {
   url: string;
 }
 
-export const Container = styled(Link)`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -24,11 +23,6 @@ export const ContainerImage = styled.div<IContainerImageProps>`
   height: 60%;
   background-size: cover;
   margin-bottom: 10px;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.02);
-    transition: all 300ms ease-in-out;
-  }
 `;
 
 export const Label = styled.label`
