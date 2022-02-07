@@ -1,9 +1,11 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import { useQuery, gql } from "@apollo/client";
 import Layout from "../Layout";
 import Card from "../../components/Card";
 import { Container } from "./styles";
 import { IUser } from "../../components/Card";
+
+import SearchContext from "../../context/search";
 
 const QUERY_LIST = gql`
   query List($name: String) {
@@ -27,10 +29,14 @@ const QUERY_LIST = gql`
   }
 `;
 
-const Home: FC = () => {
-  // const [name, setName] = useState(null);
+interface IHomeProps {
+  search?: string
+}
+
+const Home: FC<IHomeProps> = () => {
+  const { state } = useContext(SearchContext)
   const { loading, data } = useQuery(QUERY_LIST, {
-    variables: { name: null },
+    variables: { name: state.search },
   });
 
   if (loading) return <p>Loading...</p>;

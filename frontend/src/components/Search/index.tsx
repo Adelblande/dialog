@@ -1,21 +1,24 @@
-import { FC, InputHTMLAttributes, ComponentType } from "react";
+import { FC, InputHTMLAttributes, ComponentType, useContext } from "react";
 import { IconBaseProps } from "react-icons/lib";
+import SearchContext from "../../context/search";
 
 import { Container } from "./styles";
+
 
 interface ISearchProps extends InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   icon: ComponentType<IconBaseProps>;
-  handleChange: (value: string) => void;
 }
 
-const Search: FC<ISearchProps> = ({ icon: Icon, handleChange, ...rest }) => {
+const Search: FC<ISearchProps> = ({ icon: Icon, ...rest }) => {
+  const {state, setState} = useContext(SearchContext)
+
   return (
     <Container>
       <input
         type="search"
         placeholder="Search"
-        onChange={(e) => handleChange(e.target.value)}
+        onBlur={(e) => setState({...state, search: e.target.value })}
         {...rest}
       />
       <Icon size={30} />

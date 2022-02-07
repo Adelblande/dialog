@@ -11,7 +11,7 @@ const listResolvers = {
   Query: {
     list: async (_: any, args: IArgsListProps) => {
       return args.name
-        ? await User.find({ name: args.name })
+        ? await User.find({ name: {$regex: args.name}})
         : await User.find();
     },
     details: (_: any, args: IArgsDetailsProps) => {
