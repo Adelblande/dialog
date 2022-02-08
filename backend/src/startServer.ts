@@ -19,7 +19,7 @@ async function startApolloServer() {
   const httpServer = http.createServer(app);
 
   mongoose.connect(
-    "mongodb+srv://adelblande:Adelblande123@cluster0.ie8ik.mongodb.net/dialog?retryWrites=true&w=majority", {
+    "mongodb+srv://adelblande:<password>@cluster0.ie8ik.mongodb.net/<banco>?retryWrites=true&w=majority", {
       useNewUrlParser: true,
       useUnifiedTopology: true
     }
