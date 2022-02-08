@@ -1,4 +1,6 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
+import { FiArrowLeft } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom'
 import {
   Container,
   ContainerImage,
@@ -22,7 +24,13 @@ interface ICardDetailsProps {
   user: IUserDetails;
 }
 
-const CardDetails: FC<ICardDetailsProps> = ({ user }) => (
+
+const CardDetails: FC<ICardDetailsProps> = ({ user }) => {
+  const navigate = useNavigate()
+  const handleBack = useCallback(() => {
+    navigate('/')
+  }, [])
+  return (
   <>
     <Container>
       <ContainerImage url={user.picture} />
@@ -31,6 +39,7 @@ const CardDetails: FC<ICardDetailsProps> = ({ user }) => (
         <Label>Age: {user.age}</Label>
         <Label>E-mail: {user.email}</Label>
       </ContainerInfos>
+      <FiArrowLeft size={80} color="#007676" onClick={handleBack} cursor="pointer" />
     </Container>
     <FriendsTitle>Friends:</FriendsTitle>
     <ContainerFriends>
@@ -39,6 +48,6 @@ const CardDetails: FC<ICardDetailsProps> = ({ user }) => (
       ))}
     </ContainerFriends>
   </>
-);
+)};
 
 export default CardDetails;
